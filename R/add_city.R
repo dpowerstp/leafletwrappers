@@ -9,7 +9,8 @@
 #' @examples
 add_city <- function(basemap){
   basemap %>%
-    leaflet::addPolygons(data = city_boundaries,
+    leaflet::addPolygons(data = leafletwrappers::city %>%
+                           sf::st_transform(4326),
                 fill = FALSE,
                 smoothFactor = 0.5,
                 weight = 1,

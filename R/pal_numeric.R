@@ -14,7 +14,7 @@ pal_numeric <- function(var,
                         colors,
                         df,
                         reverse = FALSE) {
-  colorNumeric(palette = colors,
+  leaflet::colorNumeric(palette = colors,
                domain = df[[var]],
                reverse = reverse)
 }

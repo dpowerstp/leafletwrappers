@@ -33,7 +33,7 @@ addpoly_standard <- function(basemap,
                                              color = "#555EE7",
                                              opacity = 1,
                                              bringToFront = TRUE),
-                label = map(labels, htmltools::HTML),
+                label = purrr::map(labels, htmltools::HTML),
                 labelOptions = leaflet::labelOptions(
                   style = list("font-weight" = "normal",
                                "padding" = "0.2px 0.2px",

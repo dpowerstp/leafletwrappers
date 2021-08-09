@@ -8,7 +8,8 @@
 #' @examples
 add_wards <- function(basemap){
   basemap %>%
-    addPolygons(data = wards,
+    addPolygons(data = leafletwrappers::wards %>%
+                  sf::st_transform(4326),
                 fill = FALSE,
                 smoothFactor = 0.5,
                 weight = 1,

@@ -8,5 +8,5 @@
 #'
 #' @examples
 pal_pctile <- function(colors = "Blues"){
-  colorBin(palette = colors, domain = c(0, 100), bins = seq(0, 100, 10))
+  leaflet::colorBin(palette = colors, domain = c(0, 100), bins = seq(0, 100, 10))
 }
