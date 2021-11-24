@@ -5,7 +5,16 @@
 \title{Add leaflet legend
 A function to add a legend in standard format to a leaflet map}
 \usage{
-addlegend_standard(basemap, df, pal_funct, variable, group, title)
+addlegend_standard(
+  basemap,
+  df,
+  pal_funct,
+  variable,
+  group,
+  title,
+  .opacity = 0.7,
+  .data = leaflet::getMapData(basemap)
+)
 }
 \arguments{
 \item{basemap}{A leaflet basemap}
@@ -18,7 +27,11 @@ addlegend_standard(basemap, df, pal_funct, variable, group, title)
 
 \item{group}{The group of the legend}
 
-\item{title}{The title of the legend}
+\item{title}{The title of the legend, displayed above the legend}
+
+\item{.opacity}{The opacity of the legend; defaults 0.7}
+
+\item{.data}{A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here}
 }
 \value{
 A legend in a Leaflet map

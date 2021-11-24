@@ -12,7 +12,13 @@ addpoly_legend(
   variable_select,
   group_select,
   title_select,
-  labels_select
+  labels_select,
+  .legopacity = 0.7,
+  .polopacity = 1,
+  .polfillopacity = 0.4,
+  .polweight = 1,
+  .pollinecolor = "transparent",
+  .data = leaflet::getMapData(basemap_select)
 )
 }
 \arguments{
@@ -20,15 +26,27 @@ addpoly_legend(
 
 \item{df_select}{A spatial dataframe with the geography stripped}
 
-\item{pal_funct_select}{A color function}
+\item{pal_funct_select}{A color function; e.g. leafletwrappers::color_numeric will often be approriate for numeric functions}
 
-\item{variable_select}{A variable to color in the polygon from the spatial datafrmae}
+\item{variable_select}{A variable to color in the polygon from the spatial dataframe, supplied as a string}
 
 \item{group_select}{A group for the legend/polygon}
 
 \item{title_select}{The title of the legend/polygon}
 
 \item{labels_select}{A list of labels corresponding to the length of the dataframe to appear as pop-ups}
+
+\item{.legopacity}{The opacity of the polygon legend. Default value of 0.7}
+
+\item{.polopacity}{The opacity of the polygon lines. Default value of 1}
+
+\item{.polfillopacity}{The opacity of the colors inside the polygons. Default value of 0.4}
+
+\item{.polweight}{The weight of the polygon lines. Default value of 1}
+
+\item{.pollinecolor}{The color of the polygon lines. Default value of transparent}
+
+\item{.data}{A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here}
 }
 \value{
 

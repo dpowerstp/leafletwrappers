@@ -5,7 +5,19 @@
 \title{Add Polygons
 A function to add a filled-in polygon layer coloring the polygon by the provided variable}
 \usage{
-addpoly_standard(basemap, df, pal_funct, variable, group, labels)
+addpoly_standard(
+  basemap,
+  df,
+  pal_funct,
+  variable,
+  group,
+  labels,
+  .weight = 1,
+  .color = "transparent",
+  .opacity = 1,
+  .fillopacity = 0.4,
+  .data = leaflet::getMapData(basemap)
+)
 }
 \arguments{
 \item{basemap}{A leaflet basemap}
@@ -16,9 +28,19 @@ addpoly_standard(basemap, df, pal_funct, variable, group, labels)
 
 \item{variable}{The variable to visualize in the polygon from the provided dataframe}
 
-\item{group}{The group-name of the polygon}
+\item{group}{The group-name of the polygon; a string}
 
 \item{labels}{A list of labels corresponding to the length of the dataframe to appear as pop-ups}
+
+\item{.weight}{The weight of the polygon lines. Default value of 1}
+
+\item{.color}{The opacity of the polygon lines. Default value of 1}
+
+\item{.opacity}{The opacity of the colors inside the polygons. Default value of 0.4}
+
+\item{.fillopacity}{The color of the polygon lines. Default value of transparent}
+
+\item{.data}{A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here}
 }
 \value{
 A polygon layer in a leaflet map
