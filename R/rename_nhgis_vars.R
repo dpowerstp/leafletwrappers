@@ -1,8 +1,8 @@
 #' Rename NHGIS variables
 #' Function to rename NHGIS variables to more descriptive names. Intended use is in a rename_all function, with the variable name fed as the string.
 #'
+#' @param year_val The selected year of NHGIS data; defaults 2019 for ACS 2015-2019.
 #' @param string NHGIS variable name.
-#' @param year Year of NHGIS data.
 #'
 #' @return More descriptive NHGIS variable name
 #' @export
@@ -13,7 +13,7 @@ bg_rename <- function(string, year_val = 2019){
   # browser()
 
   if (year_val == 2019){
-    vals <- case_when(grepl("ALWG[A-Z]001", string, ignore.case = T) ~ "educ_tot_bg",
+    vals <- dplyr::case_when(grepl("ALWG[A-Z]001", string, ignore.case = T) ~ "educ_tot_bg",
                       grepl("ALWG[A-Z]002", string, ignore.case = T) ~  "educ_no_school",
                       grepl("ALWG[A-Z]003", string, ignore.case = T) ~  "educ_nurse_school",
                       grepl("ALWG[A-Z]004", string, ignore.case = T) ~  "educ_kindgar",

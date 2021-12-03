@@ -23,13 +23,13 @@ addlegend_standard(
 
 \item{pal_funct}{A color function; e.g. leafletwrappers::color_numeric will often be approriate for numeric functions}
 
-\item{variable}{The variable to create a legend for from the provided dataframe}
+\item{variable}{The variable to create a legend for from the provided dataframe, supplied as a string.}
 
-\item{group}{The group of the legend}
+\item{group}{The group of the legend, supplied as a string.}
 
-\item{title}{The title of the legend, displayed above the legend}
+\item{title}{The title of the legend, displayed above the legend.}
 
-\item{.opacity}{The opacity of the legend; defaults 0.7}
+\item{.opacity}{The opacity of the legend; defaults 0.7.}
 
 \item{.data}{A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here}
 }

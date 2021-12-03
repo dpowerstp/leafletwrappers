@@ -8,7 +8,7 @@
 #' @examples
 add_wards <- function(basemap){
   basemap %>%
-    addPolygons(data = leafletwrappers::wards %>%
+    leaflet::addPolygons(data = leafletwrappers::wards %>%
                   sf::st_transform(4326),
                 fill = FALSE,
                 smoothFactor = 0.5,
@@ -17,7 +17,7 @@ add_wards <- function(basemap){
                 color = "#646464",
                 label = ~ str_to_title(WARD),
                 # options = pathOptions(pane = "borders"),
-                labelOptions = labelOptions(noHide = TRUE,
+                labelOptions = leaflet::labelOptions(noHide = TRUE,
                                             direction = 'center',
                                             textOnly = TRUE,
                                             style = list("font-weight" = "bold", padding = "1px 1px"),
