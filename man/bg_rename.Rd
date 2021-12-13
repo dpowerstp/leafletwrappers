@@ -10,7 +10,7 @@ bg_rename(string, year_val = 2019)
 \arguments{
 \item{string}{NHGIS variable name.}
 
-\item{year}{Year of NHGIS data.}
+\item{year_val}{The selected year of NHGIS data; defaults 2019 for ACS 2015-2019.}
 }
 \value{
 More descriptive NHGIS variable name
