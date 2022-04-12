@@ -64,8 +64,8 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
                                                        textOnly = TRUE,
                                                        style = list(`font-weight` = "bold",
                                                                     padding = "1px 1px"),
-                                                       textsize = "10.25px")),
-      data = leafletwrappers::wards_new)
+                                                       textsize = "10.25px"),
+      data = leafletwrappers::wards_new))
   }
 
   else{
@@ -80,8 +80,8 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
                                                               textOnly = TRUE,
                                                               style = list(`font-weight` = "bold",
                                                                            padding = "1px 1px"),
-                                                              textsize = "10.25px")),
-           data = leafletwrappers::wards_new)
+                                                              textsize = "10.25px"),
+           data = leafletwrappers::wards_new))
   }
 
 }
