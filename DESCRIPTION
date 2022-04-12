@@ -1,6 +1,6 @@
 Package: leafletwrappers
 Title: Wraparound Leaflet Functions for Standard Maps
-Version: 0.0.0.9100
+Version: 0.0.0.9200
 Authors@R: 
     person(given = "Dan",
            family = "Powers",
