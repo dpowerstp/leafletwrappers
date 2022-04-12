@@ -48,6 +48,7 @@ label_html <- function(label_vec){
 #' map <- leaflet::leaflet(leafletwrappers::wards)
 #' leaflet::addPolygons(map, label = label_output(leafletwrappers::wards, labs))
 label_output <- function(df, label_text){
-  leafletwrappers::label_standardize(df, label_text) %>%
-    leafletwrappers::label_html(.)
+  map(leafletwrappers::label_standardize(df, label_text), htmltools::HTML)
 }
+
+
