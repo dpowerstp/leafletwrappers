@@ -1,4 +1,5 @@
 #' Add leaflet legend
+#'
 #' A function to add a legend in standard format to a leaflet map
 #'
 #' @param basemap A leaflet basemap

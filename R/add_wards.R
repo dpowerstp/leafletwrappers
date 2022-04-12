@@ -1,4 +1,5 @@
 #' Add Takoma Park ward boundaries
+#'
 #' Adds polygons for Takoma Park's ward boundaries to the map, with labels
 #'
 #' @param basemap A leaflet map.
@@ -44,7 +45,7 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
 
   if (.inclabs){
     return(basemap %>%
-      addPolygons(fill = FALSE,
+      leaflet::addPolygons(fill = FALSE,
                   smoothFactor = 0.5,
                   weight = .weight,
                   opacity = .opacity,
@@ -60,7 +61,7 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
 
   else{
     return(basemap %>%
-             addPolygons(fill = FALSE,
+             leaflet::addPolygons(fill = FALSE,
                          smoothFactor = 0.5,
                          weight = .weight,
                          opacity = .opacity,

@@ -115,14 +115,14 @@ bg_rename <- function(string, year_val = 2019){
                       grepl("ALUK[A-Z]021", string, ignore.case = T) ~ "hispr_hisplat_two_three",
                       T ~ string)
 
-    vals_moe_check <- case_when(grepl(".+{4}E", string, ignore.case = T) ~ vals,
+    vals_moe_check <- dplyr::case_when(grepl(".+{4}E", string, ignore.case = T) ~ vals,
                                 grepl(".+{4}M", string, ignore.case = T) ~ paste0(vals, "_moe"),
                                 T ~ vals)
 
   }
 
   else if (year_val == 2018){
-    vals <- case_when(grepl("AJYP[A-Z]001", string, ignore.case = T) ~ "educ_tot_bg",
+    vals <- dplyr::case_when(grepl("AJYP[A-Z]001", string, ignore.case = T) ~ "educ_tot_bg",
                       grepl("AJYP[A-Z]002", string, ignore.case = T) ~  "educ_no_school",
                       grepl("AJYP[A-Z]003", string, ignore.case = T) ~  "educ_nurse_school",
                       grepl("AJYP[A-Z]004", string, ignore.case = T) ~  "educ_kindgar",
@@ -192,7 +192,7 @@ bg_rename <- function(string, year_val = 2019){
                       grepl("AJZV[A-Z]003", string, ignore.case = T) ~  "pubassist_no",
                       T ~ string)
 
-    vals_moe_check <- case_when(grepl(".+{4}E", string, ignore.case = T) ~ vals,
+    vals_moe_check <- dplyr::case_when(grepl(".+{4}E", string, ignore.case = T) ~ vals,
                                 grepl(".+{4}M", string, ignore.case = T) ~ paste0(vals, "_moe"),
                                 T ~ vals)
 

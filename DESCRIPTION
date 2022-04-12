@@ -22,6 +22,7 @@ Imports:
     leaflet,
     magrittr,
     purrr,
-    sf
+    sf,
+    stringr
 Depends: 
     R (>= 2.10)

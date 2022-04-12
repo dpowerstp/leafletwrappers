@@ -1,4 +1,5 @@
 #' Add standard polygon/legend
+#'
 #' A function to add a standardized legend/polygon to a leaflet map
 #'
 #' @param basemap_select A leaflet basemap

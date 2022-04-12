@@ -1,4 +1,5 @@
 #' Create Leaflet Label
+#'
 #' Creates a label-vector for Leaflet map from a supplied dataframe and character string supplied to a glue function
 #'
 #' @param df A spatial dataframe that will be supplied to a leaflet() function
@@ -17,6 +18,7 @@ label_standardize <- function(df, label_text){
 }
 
 #' Turn Labels into HTML
+#'
 #' A function to convert a character vector of labels for a leaflet map into a list with HTML applied to each element
 #'
 #' @param label_vec A character vector of labels corresponding to the length of the mapped dataframe
@@ -34,6 +36,7 @@ label_html <- function(label_vec){
 }
 
 #' Label Output
+#'
 #' Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step
 #'
 #' @param df Dataframe to create labels from
@@ -48,7 +51,7 @@ label_html <- function(label_vec){
 #' map <- leaflet::leaflet(leafletwrappers::wards)
 #' leaflet::addPolygons(map, label = label_output(leafletwrappers::wards, labs))
 label_output <- function(df, label_text){
-  map(leafletwrappers::label_standardize(df, label_text), htmltools::HTML)
+  purrr::map(leafletwrappers::label_standardize(df, label_text), ~ htmltools::HTML(.x))
 }
 
 

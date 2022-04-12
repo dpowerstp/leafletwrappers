@@ -1,4 +1,5 @@
 #' Percentile palette
+#'
 #' Function to generate a palette function to color percentile data
 #'
 #' @param colors Colors argument to leaflet::colorBin() function

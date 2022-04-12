@@ -1,4 +1,5 @@
 #' Add Takoma Park city boundaries
+#'
 #' Function to add Takoma Park city boundaries to a leaflet map
 #'
 #' @param basemap A leaflet map.

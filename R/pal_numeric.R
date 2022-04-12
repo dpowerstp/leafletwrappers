@@ -1,4 +1,5 @@
 #' Numeric palette
+#'
 #' Function to generate a color palette for a variable based on a supplied dataframe
 #'
 #' @param var A variable in the dataframe, supplied as a string

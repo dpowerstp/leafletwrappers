@@ -2,7 +2,8 @@
 #'
 #' A shapefile containing polygons for Ward boundaries from 2013-2022
 #'
-#' @format A data frame with 6 rows and 8 variables
+#' @
+#' @format A spatial dataframe with 6 rows and 8 variables
 #' \describe{
 #'   \item{OBJECTID}{Unique identifier for Ward}
 #'   \item{ID}{ID for Ward}
@@ -20,7 +21,7 @@
 #'
 #' A shapefile containing Ward boundaries from 2022-2030 after the 2020 redistricting
 #'
-#' @format A data frame with 6 rows and 8 variables
+#' @format A spatial dataframe with 6 rows and 8 variables
 #' \describe{
 #'   \item{DISTRICT}{Ward}
 #'   \item{DISTNUM}{Ward number}
@@ -36,7 +37,7 @@
 #'
 #' A shapefile containing the City of Takoma Park's boundaries
 #'
-#' @format A data frame with 6 rows and 8 variables
+#' @format A spatial dataframe with 6 rows and 8 variables
 #' \describe{
 #'   \item{PERIMETER}{Of City}
 #'   \item{AREA_NAME}{Name of City}
