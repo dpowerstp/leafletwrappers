@@ -7,7 +7,11 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples{
+#' leaflet::leaflet() %>%
+#' leaflet::addTiles() %>%
+#' add_wards()
+#' }
 add_wards <- function(basemap){
   basemap %>%
     leaflet::addPolygons(data = leafletwrappers::wards %>%
@@ -40,7 +44,11 @@ add_wards <- function(basemap){
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples{
+#' leaflet::leaflet() %>%
+#' leaflet::addtiles() %>%
+#' add_wards_new()
+#' }
 add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black", .opacity = 1){
 
   if (.inclabs){
@@ -56,7 +64,8 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
                                                        textOnly = TRUE,
                                                        style = list(`font-weight` = "bold",
                                                                     padding = "1px 1px"),
-                                                       textsize = "10.25px")))
+                                                       textsize = "10.25px")),
+      data = leafletwrappers::wards_new)
   }
 
   else{
@@ -71,7 +80,8 @@ add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black"
                                                               textOnly = TRUE,
                                                               style = list(`font-weight` = "bold",
                                                                            padding = "1px 1px"),
-                                                              textsize = "10.25px")))
+                                                              textsize = "10.25px")),
+           data = leafletwrappers::wards_new)
   }
 
 }

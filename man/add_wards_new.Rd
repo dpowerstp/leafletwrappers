@@ -29,3 +29,10 @@ add_wards_new(
 \description{
 Adds outlines of Takoma Park's ward boundaries from 2022 on to a leaflet map
 }
+\examples{
+{
+leaflet::leaflet() \%>\%
+leaflet::addtiles() \%>\%
+add_wards_new()
+}
+}

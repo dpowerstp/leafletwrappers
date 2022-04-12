@@ -15,3 +15,10 @@ add_wards(basemap)
 \description{
 Adds polygons for Takoma Park's ward boundaries to the map, with labels
 }
+\examples{
+{
+leaflet::leaflet() \%>\%
+leaflet::addTiles() \%>\%
+add_wards()
+}
+}
