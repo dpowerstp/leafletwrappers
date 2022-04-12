@@ -2,8 +2,7 @@
 % Please edit documentation in R/label_standardize.R
 \name{label_output}
 \alias{label_output}
-\title{Label Output
-Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step}
+\title{Label Output}
 \usage{
 label_output(df, label_text)
 }
@@ -16,7 +15,6 @@ label_output(df, label_text)
 List of strings corresponding to length of dataframe, supplied to leaflet function
 }
 \description{
-Label Output
 Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step
 }
 \examples{

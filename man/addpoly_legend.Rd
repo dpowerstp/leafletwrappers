@@ -2,8 +2,7 @@
 % Please edit documentation in R/addpoly_legend.R
 \name{addpoly_legend}
 \alias{addpoly_legend}
-\title{Add standard polygon/legend
-A function to add a standardized legend/polygon to a leaflet map}
+\title{Add standard polygon/legend}
 \usage{
 addpoly_legend(
   basemap_select,
@@ -52,6 +51,5 @@ addpoly_legend(
 
 }
 \description{
-Add standard polygon/legend
 A function to add a standardized legend/polygon to a leaflet map
 }

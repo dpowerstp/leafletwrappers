@@ -2,8 +2,7 @@
 % Please edit documentation in R/pal_numeric.R
 \name{pal_numeric}
 \alias{pal_numeric}
-\title{Numeric palette
-Function to generate a color palette for a variable based on a supplied dataframe}
+\title{Numeric palette}
 \usage{
 pal_numeric(var, colors, df, reverse = FALSE)
 }
@@ -20,6 +19,5 @@ pal_numeric(var, colors, df, reverse = FALSE)
 
 }
 \description{
-Numeric palette
 Function to generate a color palette for a variable based on a supplied dataframe
 }

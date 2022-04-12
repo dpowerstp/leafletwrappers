@@ -2,8 +2,7 @@
 % Please edit documentation in R/label_standardize.R
 \name{label_html}
 \alias{label_html}
-\title{Turn Labels into HTML
-A function to convert a character vector of labels for a leaflet map into a list with HTML applied to each element}
+\title{Turn Labels into HTML}
 \usage{
 label_html(label_vec)
 }
@@ -14,7 +13,6 @@ label_html(label_vec)
 A list with HTML applied to each element of the character vector
 }
 \description{
-Turn Labels into HTML
 A function to convert a character vector of labels for a leaflet map into a list with HTML applied to each element
 }
 \examples{

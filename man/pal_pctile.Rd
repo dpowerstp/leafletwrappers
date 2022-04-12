@@ -2,8 +2,7 @@
 % Please edit documentation in R/pal_pctile.R
 \name{pal_pctile}
 \alias{pal_pctile}
-\title{Percentile palette
-Function to generate a palette function to color percentile data}
+\title{Percentile palette}
 \usage{
 pal_pctile(colors = "Blues")
 }
@@ -14,6 +13,5 @@ pal_pctile(colors = "Blues")
 
 }
 \description{
-Percentile palette
 Function to generate a palette function to color percentile data
 }

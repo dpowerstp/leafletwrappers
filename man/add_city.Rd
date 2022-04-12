@@ -2,8 +2,7 @@
 % Please edit documentation in R/add_city.R
 \name{add_city}
 \alias{add_city}
-\title{Add Takoma Park city boundaries
-Function to add Takoma Park city boundaries to a leaflet map}
+\title{Add Takoma Park city boundaries}
 \usage{
 add_city(basemap)
 }
@@ -14,6 +13,5 @@ add_city(basemap)
 
 }
 \description{
-Add Takoma Park city boundaries
 Function to add Takoma Park city boundaries to a leaflet map
 }

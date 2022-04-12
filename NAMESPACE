@@ -2,6 +2,7 @@
 
 export(add_city)
 export(add_wards)
+export(add_wards_new)
 export(addlegend_standard)
 export(addpoly_legend)
 export(addpoly_standard)

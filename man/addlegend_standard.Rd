@@ -2,8 +2,7 @@
 % Please edit documentation in R/addlegend_standard.R
 \name{addlegend_standard}
 \alias{addlegend_standard}
-\title{Add leaflet legend
-A function to add a legend in standard format to a leaflet map}
+\title{Add leaflet legend}
 \usage{
 addlegend_standard(
   basemap,
@@ -37,6 +36,5 @@ addlegend_standard(
 A legend in a Leaflet map
 }
 \description{
-Add leaflet legend
 A function to add a legend in standard format to a leaflet map
 }

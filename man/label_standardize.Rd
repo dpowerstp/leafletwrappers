@@ -2,8 +2,7 @@
 % Please edit documentation in R/label_standardize.R
 \name{label_standardize}
 \alias{label_standardize}
-\title{Create Leaflet Label
-Creates a label-vector for Leaflet map from a supplied dataframe and character string supplied to a glue function}
+\title{Create Leaflet Label}
 \usage{
 label_standardize(df, label_text)
 }
@@ -16,7 +15,6 @@ label_standardize(df, label_text)
 A character vector of labels that will be supplied in a leaflet map
 }
 \description{
-Create Leaflet Label
 Creates a label-vector for Leaflet map from a supplied dataframe and character string supplied to a glue function
 }
 \examples{

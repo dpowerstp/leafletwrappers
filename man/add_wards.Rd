@@ -13,5 +13,5 @@ add_wards(basemap)
 
 }
 \description{
-Add Takoma Park ward boundaries
+Adds polygons for Takoma Park's ward boundaries to the map, with labels
 }
