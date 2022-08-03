@@ -157,15 +157,15 @@ addpoly_legend <- function(basemap_select,
                        title = title_select)
 }
 
-#' Add standard clustered-points
+#' Add standard marker-points
 #'
-#' Standard function for adding clustered points layer to leaflet object, colored by a palette function
+#' Standard function for adding marker points layer to leaflet object, colored by a palette function
 #'
 #' @param leafletobj Leaflet object
 #' @param var Variable layer is being colored by as character string
 #' @param pal_funct Palette function to color variable by, created by one of leaflet's color functions
 #' @param grp Group layer belongs to
-#' @param radius Radius of points; default 0.1
+#' @param radius Radius of points; default 0.1. To size by a variable, can feed a formula with the sqrt() of a data-masked variable; e.g., ~ sqrt(unitsize)
 #' @param weight Weight of points; default 20
 #' @param df Spatial dataframe behind layer; default leaflet::getMapData(leafletobj)
 #' @param .popup_maxheight Maximum height of pop-up window; default 200
@@ -176,6 +176,7 @@ addpoly_legend <- function(basemap_select,
 #' @param .label_opacity Label opacity; default 0.8
 #' @param labvar Label to show when hover over a point; can feed either a data-masked variable name, or a set of labels created by leafletwrappers::label_standard function
 #' @param popuptext Labels to show in pop-up over point, created by leafletwrappers::label_output function
+#' @param clusterpoints Whether to cluster points; default true
 #'
 #' @return
 #' @export
@@ -187,6 +188,7 @@ addcluster_standard <- function(leafletobj,
                                 grp,
                                 labvar,
                                 popuptext,
+                                clusterpoints = T,
                                 radius = 0.1,
                                 weight = 20,
                                 df = leaflet::getMapData(leafletobj),
@@ -196,43 +198,81 @@ addcluster_standard <- function(leafletobj,
                                 .label_lineheight = 0.8,
                                 .label_textsize = "10px",
                                 .label_opacity = 0.8){
-  leafletobj %>%
-    leaflet::addCircleMarkers(
-      radius = radius,
-      color = ~ pal_funct(sf::st_drop_geometry(df)[[var]]),
-      group = grp,
-      stroke = T,
-      weight = weight,
-      data = df,
-      clusterOptions = leaflet::markerClusterOptions(),
-      popupOptions = leaflet::popupOptions(
-        maxHeight = .popup_maxheight,
-        maxWidth = .popup_maxwidth
-      ),
-      label = ~ labvar,
-      labelOptions = leaflet::labelOptions(
-        style = list(`font-weight` = "normal",
-                     padding = .label_padding,
-                     `line-height` = .label_lineheight),
-        textsize = .label_textsize,
-        direction = "auto",
-        opacity = .label_opacity
-      ),
-      # highlight = leaflet::highlightOptions(
-      #   stroke = TRUE,
-      #   weight = 3.5,
-      #   fillOpacity = 0.6,
-      #   color = "#555EE7",
-      #   opacity = 1,
-      #   bringToFront = TRUE),
-      popup = popuptext
-    )
+  if (clusterpoints){
+    output <- leafletobj %>%
+      leaflet::addCircleMarkers(
+        radius = radius,
+        color = ~ pal_funct(sf::st_drop_geometry(df)[[var]]),
+        group = grp,
+        stroke = T,
+        weight = weight,
+        data = df,
+        clusterOptions = leaflet::markerClusterOptions(),
+        popupOptions = leaflet::popupOptions(
+          maxHeight = .popup_maxheight,
+          maxWidth = .popup_maxwidth
+        ),
+        label = ~ labvar,
+        labelOptions = leaflet::labelOptions(
+          style = list(`font-weight` = "normal",
+                       padding = .label_padding,
+                       `line-height` = .label_lineheight),
+          textsize = .label_textsize,
+          direction = "auto",
+          opacity = .label_opacity
+        ),
+        # highlight = leaflet::highlightOptions(
+        #   stroke = TRUE,
+        #   weight = 3.5,
+        #   fillOpacity = 0.6,
+        #   color = "#555EE7",
+        #   opacity = 1,
+        #   bringToFront = TRUE),
+        popup = popuptext
+      )
+  }
+
+  else {
+    output <- leafletobj %>%
+      leaflet::addCircleMarkers(
+        radius = radius,
+        color = ~ pal_funct(sf::st_drop_geometry(df)[[var]]),
+        group = grp,
+        stroke = T,
+        weight = weight,
+        data = df,
+        # clusterOptions = leaflet::markerClusterOptions(),
+        popupOptions = leaflet::popupOptions(
+          maxHeight = .popup_maxheight,
+          maxWidth = .popup_maxwidth
+        ),
+        label = ~ labvar,
+        labelOptions = leaflet::labelOptions(
+          style = list(`font-weight` = "normal",
+                       padding = .label_padding,
+                       `line-height` = .label_lineheight),
+          textsize = .label_textsize,
+          direction = "auto",
+          opacity = .label_opacity
+        ),
+        # highlight = leaflet::highlightOptions(
+        #   stroke = TRUE,
+        #   weight = 3.5,
+        #   fillOpacity = 0.6,
+        #   color = "#555EE7",
+        #   opacity = 1,
+        #   bringToFront = TRUE),
+        popup = popuptext
+      )
+  }
+
+  output
 
 }
 
-#' Add cluster layer and legend
+#' Add marker layer and legend
 #'
-#' Adds cluster layer and legend to leaflet map, with points in cluster layer shaded by palette function
+#' Adds marker layer and legend to leaflet map, with points in cluster layer shaded by palette function
 #'
 #' @param leafletobj Leaflet object
 #' @param var String name of variable colored in cluster layer
@@ -241,10 +281,11 @@ addcluster_standard <- function(leafletobj,
 #' @param labvar Label to show when hover over a point; can feed either a data-masked variable name, or a set of labels created by leafletwrappers::label_standard function
 #' @param popuptext Labels to show in pop-up over point, created by leafletwrappers::label_output function
 #' @param title Title of legend; default grp
-#' @param radius Radius of points; default 0.1
+#' @param radius Radius of points; default 0.1. To size by a variable, can feed a formula with the sqrt() of a data-masked variable; e.g., ~ sqrt(unitsize)
 #' @param weight Weight of points; default 20
 #' @param df Spatial dataframe behind layer; default leaflet::getMapData(leafletobj)
 #' @param ... Additional .label or .popup arguments for leafletwrappers::addcluster_standard, or opacity argument for leafletwrapper::addlegend_standard
+#' @param clusterpoints Whether to cluster points; default true
 #'
 #' @return Leaflet object with cluster layer and legend
 #' @export
@@ -256,6 +297,7 @@ addcluster_legend <- function(leafletobj,
                               grp,
                               labvar,
                               popuptext,
+                              clusterpoints = T,
                               title = grp,
                               radius = 0.1,
                               weight = 20,
@@ -265,6 +307,7 @@ addcluster_legend <- function(leafletobj,
     leafletwrappers::addcluster_standard(
       var = var,
       pal_funct = pal_funct,
+      clusterpoints = clusterpoints,
       grp = grp,
       labvar = labvar,
       popuptext = popuptext,
