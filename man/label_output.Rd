@@ -9,16 +9,16 @@ label_output(df, label_text)
 \arguments{
 \item{df}{Dataframe to create labels from}
 
-\item{label_text}{Text fed to glue function to create labels using columns in dataframe}
+\item{label_text}{Text fed to glue function to create labels using columns in dataframe. For the glue function, an object p is defined to be "<p></p>" for easier line breaks}
 }
 \value{
 List of strings corresponding to length of dataframe, supplied to leaflet function
 }
 \description{
-Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step
+Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step. Object p assigned within label_output function to enable easier line breaks in glue function.
 }
 \examples{
-labs <- "Ward name: {WARD}<p></p> Area: {Area}"
+labs <- "Ward name: {WARD} Area: {Area}"
 
 map <- leaflet::leaflet(leafletwrappers::wards)
 leaflet::addPolygons(map, label = label_output(leafletwrappers::wards, labs))

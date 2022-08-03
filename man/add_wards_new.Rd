@@ -23,16 +23,12 @@ add_wards_new(
 
 \item{.opacity}{Opacity of Ward boundary lines; default 1}
 }
-\value{
-
-}
 \description{
 Adds outlines of Takoma Park's ward boundaries from 2022 on to a leaflet map
 }
 \examples{
 {
-leaflet::leaflet() \%>\%
-leaflet::addtiles() \%>\%
-add_wards_new()
+add_wards_new(leaflet::leaflet())
+
 }
 }

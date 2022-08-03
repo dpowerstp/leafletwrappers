@@ -37,21 +37,47 @@ label_html <- function(label_vec){
 
 #' Label Output
 #'
-#' Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step
+#' Wrapper for label_standardize and label_html, to create labels for a leaflet map in one step. Object p assigned within label_output function to enable easier line breaks in glue function.
 #'
 #' @param df Dataframe to create labels from
-#' @param label_text Text fed to glue function to create labels using columns in dataframe
+#' @param label_text Text fed to glue function to create labels using columns in dataframe. For the glue function, an object p is defined to be "<p></p>" for easier line breaks
 #'
 #' @return List of strings corresponding to length of dataframe, supplied to leaflet function
 #' @export
 #'
 #' @examples
-#' labs <- "Ward name: {WARD}<p></p> Area: {Area}"
+#' labs <- "Ward name: {WARD} Area: {Area}"
 #'
 #' map <- leaflet::leaflet(leafletwrappers::wards)
 #' leaflet::addPolygons(map, label = label_output(leafletwrappers::wards, labs))
 label_output <- function(df, label_text){
+  p <-"<p></p>"
+
   purrr::map(leafletwrappers::label_standardize(df, label_text), ~ htmltools::HTML(.x))
 }
+
+
+
+#' Add text to leaflet map
+#'
+#' Add text to a leaflet map; e.g., instructions for how to use the map
+#'
+#' @param leafletobj Leaflet map object
+#' @param text Text that's displayed on the leaflet map
+#' @param pos Position of the text; default "bottomleft"
+#'
+#' @return Leaflet map with displayed text
+#' @export
+#'
+#' @examples
+addtext <- function(leafletobj, text, pos = "bottomleft"){
+  test_control <- htmltools::tags$div(
+    htmltools::HTML(text)
+  )
+
+  leafletobj %>%
+    leaflet::addControl(html = test_control, position = pos)
+}
+
 
 

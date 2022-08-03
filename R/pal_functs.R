@@ -1,3 +1,18 @@
+#' Percentile palette
+#'
+#' Function to generate a palette function to color percentile data
+#'
+#' @param colors Colors argument to leaflet::colorBin() function
+#'
+#' @return
+#' @export
+#'
+#' @examples
+pal_pctile <- function(colors = "Blues"){
+  leaflet::colorBin(palette = colors, domain = c(0, 100), bins = seq(0, 100, 10))
+}
+
+
 #' Numeric palette
 #'
 #' Function to generate a color palette for a variable based on a supplied dataframe
@@ -16,6 +31,10 @@ pal_numeric <- function(var,
                         df,
                         reverse = FALSE) {
   leaflet::colorNumeric(palette = colors,
-               domain = df[[var]],
-               reverse = reverse)
+                        domain = df[[var]],
+                        reverse = reverse)
 }
+
+
+
+

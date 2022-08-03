@@ -8,9 +8,8 @@
 #' @export
 #'
 #' @examples{
-#' leaflet::leaflet() %>%
-#' leaflet::addTiles() %>%
-#' add_wards()
+#' add_wards(leaflet::leaflet())
+#'
 #' }
 add_wards <- function(basemap){
   basemap %>%
@@ -22,7 +21,7 @@ add_wards <- function(basemap){
                 group = "Ward boundaries",
                 opacity = 1,
                 color = "#646464",
-                label = ~ str_to_title(WARD),
+                label = ~ stringr::str_to_title(WARD),
                 # options = pathOptions(pane = "borders"),
                 labelOptions = leaflet::labelOptions(noHide = TRUE,
                                             direction = 'center',
@@ -46,9 +45,8 @@ add_wards <- function(basemap){
 #' @export
 #'
 #' @examples{
-#' leaflet::leaflet() %>%
-#' leaflet::addtiles() %>%
-#' add_wards_new()
+#' add_wards_new(leaflet::leaflet())
+#'
 #' }
 add_wards_new <- function(basemap, .inclabs = T, .weight = 1.5, .color = "black", .opacity = 1){
 

@@ -17,7 +17,8 @@ addpoly_legend(
   .polfillopacity = 0.4,
   .polweight = 1,
   .pollinecolor = "transparent",
-  .data = leaflet::getMapData(basemap_select)
+  .data = leaflet::getMapData(basemap_select),
+  ...
 )
 }
 \arguments{
@@ -46,9 +47,8 @@ addpoly_legend(
 \item{.pollinecolor}{The color of the polygon lines. Default value of transparent}
 
 \item{.data}{A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here}
-}
-\value{
 
+\item{...}{Extra label arguments to supply to addpoly_standard}
 }
 \description{
 A function to add a standardized legend/polygon to a leaflet map

@@ -9,9 +9,6 @@ add_city(basemap)
 \arguments{
 \item{basemap}{A leaflet map.}
 }
-\value{
-
-}
 \description{
 Function to add Takoma Park city boundaries to a leaflet map
 }

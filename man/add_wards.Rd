@@ -9,16 +9,12 @@ add_wards(basemap)
 \arguments{
 \item{basemap}{A leaflet map.}
 }
-\value{
-
-}
 \description{
 Adds polygons for Takoma Park's ward boundaries to the map, with labels
 }
 \examples{
 {
-leaflet::leaflet() \%>\%
-leaflet::addTiles() \%>\%
-add_wards()
+add_wards(leaflet::leaflet())
+
 }
 }
