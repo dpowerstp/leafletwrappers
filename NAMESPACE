@@ -3,6 +3,7 @@
 export(add_city)
 export(add_wards)
 export(add_wards_new)
+export(addbounds)
 export(addcluster_legend)
 export(addcluster_standard)
 export(addlegend_standard)

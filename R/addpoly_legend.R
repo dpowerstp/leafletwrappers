@@ -354,3 +354,76 @@ layercontrolsquick <- function(leafletobj, groups, hide = NULL, .pos = "topleft"
     leaflet::hideGroup(group = hide)
 
 }
+
+
+#' Add polygon boundaries
+#'
+#' Quick function for adding styled polygon boundaries layer to a leaflet map, with no fill-in.
+#'
+#' @param leafobj Leaflet map adding boundaries layer to.
+#' @param placetype Group-name as string.
+#' @param spatialdf Spatial dataframe showing boundaries for
+#' @param .color Color of polygon boundaries; default "black"
+#' @param .weight Weight of polygon boundaries; default 0.5
+#' @param .opacity Opacity of polygon boundaries; default 0.5
+#' @param labformula Label parameter in addPolygons(); e.g., ~ NAME, or leafletwrappers::label_output() results. Default NULL, so no label displayed
+#'
+#' @return Leaflet map with layer for polygon boundaries added.
+#' @export
+#'
+#' @examples
+addbounds <- function(leafobj, placetype, spatialdf, .color = "black", .weight = 0.5, .opacity = 0.5, labformula = NULL){
+
+  if (is.null(labformula)){
+
+    output <- leafobj %>%
+      leaflet::addPolygons(
+        group = placetype,
+        fill = F,
+        stroke = T,
+        weight = .weight,
+        opacity = .opacity,
+        color = .color,
+        # label = labformula,
+        data = spatialdf,
+        labelOptions = leaflet::labelOptions(
+          noHide = T,
+          direction = "center",
+          textOnly = T,
+          style = list(
+            `font-weight` = "bold",
+            padding = "1px 1px",
+            textsize = "9px")
+        )
+      )
+  }
+
+  else{
+
+    output <- leafobj %>%
+      leaflet::addPolygons(
+        group = placetype,
+        fill = F,
+        stroke = T,
+        weight = .weight,
+        opacity = .opacity,
+        color = .color,
+        label = labformula,
+        data = spatialdf,
+        labelOptions = leaflet::labelOptions(
+          noHide = T,
+          direction = "center",
+          textOnly = T,
+          style = list(
+            `font-weight` = "bold",
+            padding = "1px 1px",
+            textsize = "9px")
+        )
+      )
+  }
+
+  output
+
+}
+
+

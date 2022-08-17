@@ -2,7 +2,7 @@
 % Please edit documentation in R/addpoly_legend.R
 \name{addcluster_standard}
 \alias{addcluster_standard}
-\title{Add standard clustered-points}
+\title{Add standard marker-points}
 \usage{
 addcluster_standard(
   leafletobj,
@@ -11,6 +11,7 @@ addcluster_standard(
   grp,
   labvar,
   popuptext,
+  clusterpoints = T,
   radius = 0.1,
   weight = 20,
   df = leaflet::getMapData(leafletobj),
@@ -35,7 +36,9 @@ addcluster_standard(
 
 \item{popuptext}{Labels to show in pop-up over point, created by leafletwrappers::label_output function}
 
-\item{radius}{Radius of points; default 0.1}
+\item{clusterpoints}{Whether to cluster points; default true}
+
+\item{radius}{Radius of points; default 0.1. To size by a variable, can feed a formula with the sqrt() of a data-masked variable; e.g., ~ sqrt(unitsize)}
 
 \item{weight}{Weight of points; default 20}
 
@@ -54,5 +57,5 @@ addcluster_standard(
 \item{.label_opacity}{Label opacity; default 0.8}
 }
 \description{
-Standard function for adding clustered points layer to leaflet object, colored by a palette function
+Standard function for adding marker points layer to leaflet object, colored by a palette function
 }

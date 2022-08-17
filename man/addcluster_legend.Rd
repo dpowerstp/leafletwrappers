@@ -2,7 +2,7 @@
 % Please edit documentation in R/addpoly_legend.R
 \name{addcluster_legend}
 \alias{addcluster_legend}
-\title{Add cluster layer and legend}
+\title{Add marker layer and legend}
 \usage{
 addcluster_legend(
   leafletobj,
@@ -11,6 +11,7 @@ addcluster_legend(
   grp,
   labvar,
   popuptext,
+  clusterpoints = T,
   title = grp,
   radius = 0.1,
   weight = 20,
@@ -31,9 +32,11 @@ addcluster_legend(
 
 \item{popuptext}{Labels to show in pop-up over point, created by leafletwrappers::label_output function}
 
+\item{clusterpoints}{Whether to cluster points; default true}
+
 \item{title}{Title of legend; default grp}
 
-\item{radius}{Radius of points; default 0.1}
+\item{radius}{Radius of points; default 0.1. To size by a variable, can feed a formula with the sqrt() of a data-masked variable; e.g., ~ sqrt(unitsize)}
 
 \item{weight}{Weight of points; default 20}
 
@@ -45,5 +48,5 @@ addcluster_legend(
 Leaflet object with cluster layer and legend
 }
 \description{
-Adds cluster layer and legend to leaflet map, with points in cluster layer shaded by palette function
+Adds marker layer and legend to leaflet map, with points in cluster layer shaded by palette function
 }
