@@ -332,24 +332,25 @@ addcluster_legend <- function(leafletobj,
 #'
 #' @param leafletobj Leaflet object
 #' @param groups Character vector of overlay groups to show on Leaflet map
-#' @param hide Groups to hide on leaflet map. If NULL (default), hides all groups but first group
+#' @param hide Groups to hide on leaflet map. Default hides all groups but first group
 #' @param .pos Position of layer controls; default "topleft"
+#' @param .collapsed Whether layer controls should show as collapsed; default F
 #'
 #' @return Leaflet map with overlay groups
 #' @export
 #'
 #' @examples
-layercontrolsquick <- function(leafletobj, groups, hide = NULL, .pos = "topleft"){
+layercontrolsquick <- function(leafletobj, groups, hide = groups[-1], .pos = "topleft", .collapsed = F){
 
-  if (!is.null(hide)){
-    hide <-groups[-1]
-  }
+  # if (!is.null(hide)){
+  #   hide <-groups[-1]
+  # }
 
   leafletobj %>%
     leaflet::addLayersControl(
       overlayGroups = groups,
       position = .pos,
-      options = leaflet::layersControlOptions(collapsed = F),
+      options = leaflet::layersControlOptions(collapsed = .collapsed),
     ) %>%
     leaflet::hideGroup(group = hide)
 
