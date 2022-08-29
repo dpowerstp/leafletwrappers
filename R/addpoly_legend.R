@@ -121,7 +121,7 @@ addlegend_standard <- function(basemap,
 #' @param .label_textsize Label text size; default "10px"
 #' @param ... Extra label arguments to supply to addpoly_standard
 #'
-#' @return
+#' @return Leaflet map with a polygon layer added
 #' @export
 #'
 #' @examples
