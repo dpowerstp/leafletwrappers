@@ -118,6 +118,7 @@ addlegend_standard <- function(basemap,
 #' @param .polweight The weight of the polygon lines. Default value of 1
 #' @param .pollinecolor The color of the polygon lines. Default value of transparent
 #' @param .data A spatial dataframe. Defaults to the basemap dataframe; if the data being visualized is different from the dataframe used in the basemap, supply the other dataframe here
+#' @param .label_textsize Label text size; default "10px"
 #' @param ... Extra label arguments to supply to addpoly_standard
 #'
 #' @return
@@ -136,6 +137,7 @@ addpoly_legend <- function(basemap_select,
                            .polfillopacity= 0.4,
                            .polweight = 1,
                            .pollinecolor = "transparent",
+                           .label_textsize = "10px",
                            .data = leaflet::getMapData(basemap_select),
                            ...){
 
@@ -149,12 +151,15 @@ addpoly_legend <- function(basemap_select,
                      .color = .pollinecolor,
                      .opacity = .polopacity,
                      .fillopacity = .polfillopacity,
-                     .data = .data) %>%
+                     .data = .data,
+                     .label_textsize = .label_textsize,
+                     ...) %>%
     leafletwrappers::addlegend_standard(df = df_select,
                        pal_funct = pal_funct_select,
                        variable = variable_select,
                        group = group_select,
-                       title = title_select)
+                       title = title_select,
+                       ...)
 }
 
 #' Add standard marker-points
@@ -350,7 +355,7 @@ layercontrolsquick <- function(leafletobj, groups, hide = groups[-1], .pos = "to
     leaflet::addLayersControl(
       overlayGroups = groups,
       position = .pos,
-      options = leaflet::layersControlOptions(collapsed = .collapsed),
+      options = leaflet::layersControlOptions(collapsed = .collapsed)
     ) %>%
     leaflet::hideGroup(group = hide)
 
